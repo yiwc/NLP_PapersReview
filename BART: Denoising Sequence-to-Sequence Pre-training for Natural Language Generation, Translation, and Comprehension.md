@@ -1,18 +1,18 @@
-#Title:
+# Title:
 BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation,
 Translation, and Comprehension
 
-#Task tackled:
+# Task tackled:
 What is the best data preprocessing methods (noising approaches) for training.
 
-#Main novel Ideas:
+# Main novel Ideas:
 It gives corrupted and reconstruct method in the pretraining.
 
-#Overview of Method
-##1. Architecture:
+# Overview of Method
+## 1. Architecture:
 a) Decoder additionally performs cross-attention over final hidden layer
 b) Roughly 10% more parameters than BERT
-##2. Pre-training: Two stage pretraining:
+## 2. Pre-training: Two stage pretraining:
 a) Corruption:: Text is corrupted with an arbitrary noising function
 i. Token Masking: like BERT
 ii. Token Deletion: random tokens are deleted.
@@ -20,25 +20,25 @@ iii. Text Infilling: Random number (Poisson Distribution) of words are masked.
 iv. Sentence Permutation: Full stops sentences are shuffled.
 v. Document Rotation: Identify the start of document with rotated document.
 b) Reconstruction: a seq2seq model is learned to reconstruct the original text
-##3. Fine-Tuning BART:
+## 3. Fine-Tuning BART:
 a) Sequence Classfication Tasks
 b) Token Classfications Tasks
 c) Seq Generation
 d) Machine Translation
 
-#Evaluation:
-##1. Benchmark Models: Compared with those recent models: Language Model, Permuted
+# Evaluation:
+## 1. Benchmark Models: Compared with those recent models: Language Model, Permuted
 Language Model, Masked Language Model, Multitask Masked Language Model, Masked
 Seq-to-Seq
-##2. Tasks: SquAD, MNLI, ELI5, XSum, ConvAI2, CNNDM
-##3. Results:
+## 2. Tasks: SquAD, MNLI, ELI5, XSum, ConvAI2, CNNDM
+## 3. Results:
 a) Performance of pre-training methods varies significantly across tasks.
 b) Token masking is crucial
 c) Left-to-rhight pretraining improves generation
 d) Biderectional Encoders are crucial for SquAD
 e) The pretraining objective is not the only important factor.
 f) Pure language models perform best on ELI5.
-##4. Large-scale Pretraining Experiments: Large model with 12 layers in each of encoder and
+## 4. Large-scale Pretraining Experiments: Large model with 12 layers in each of encoder and
 decoder with a hidden size of 1024.
 a) Discriminative Tasks: Overall, BART performs similarly to RoBERTa.
 b) Generation Tasks:
@@ -46,12 +46,12 @@ i. Summarization tasks: BART significantly outperforms the prior works
 ii. Dialogue tasks: BART outperforms partially
 iii. Abstractive QA: BART is the SOTA
 
-#Critique/limitation:
+# Critique/limitation:
 1. There is a tendency to hallucinate unsupported informantion.
 2. Generally, BART is updated version of BERT with Corruption mask and reconstruction
 pre-training. There still no major update from the original model.
 
-#Suggestions for extensions:
+# Suggestions for extensions:
 1. There can be more data corruption methods can be investigated. Like using random
 mask under different distribution (currently using Possion mask in Text Infilling.), or
 trying dynamic adaptive random masking (random seed changes dynamically with
