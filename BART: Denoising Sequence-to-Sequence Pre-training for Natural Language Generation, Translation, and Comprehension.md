@@ -1,10 +1,13 @@
 #Title:
 BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation,
 Translation, and Comprehension
+
 #Task tackled:
 What is the best data preprocessing methods (noising approaches) for training.
+
 #Main novel Ideas:
 It gives corrupted and reconstruct method in the pretraining.
+
 #Overview of Method
 ##1. Architecture:
 a) Decoder additionally performs cross-attention over final hidden layer
@@ -22,6 +25,7 @@ a) Sequence Classfication Tasks
 b) Token Classfications Tasks
 c) Seq Generation
 d) Machine Translation
+
 #Evaluation:
 ##1. Benchmark Models: Compared with those recent models: Language Model, Permuted
 Language Model, Masked Language Model, Multitask Masked Language Model, Masked
@@ -41,10 +45,12 @@ b) Generation Tasks:
 i. Summarization tasks: BART significantly outperforms the prior works
 ii. Dialogue tasks: BART outperforms partially
 iii. Abstractive QA: BART is the SOTA
+
 #Critique/limitation:
 1. There is a tendency to hallucinate unsupported informantion.
 2. Generally, BART is updated version of BERT with Corruption mask and reconstruction
 pre-training. There still no major update from the original model.
+
 #Suggestions for extensions:
 1. There can be more data corruption methods can be investigated. Like using random
 mask under different distribution (currently using Possion mask in Text Infilling.), or
